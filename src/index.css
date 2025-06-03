@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+  font-family: "Barlow";
+  src: url("./assets/fonts/Barlow.ttf");
+}
+
+@font-face {
+  font-family: "Barlow Medium";
+  src: url("./assets/fonts/Barlow-Medium.ttf");
+}
+@font-face {
+  font-family: "Barlow Bold";
+  src: url("./assets/fonts/Barlow-Bold.ttf");
+}
+@font-face {
+  font-family: "Barlow SemiBold";
+  src: url("./assets/fonts/Barlow-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Barlow Thin";
+  src: url("./assets/fonts/Barlow-Thin.ttf");
+}
+
+@theme {
+  --font-barlow: "Barlow", "sans-serif";
+  --font-barlow-bold: "Barlow Bold", "sans-serif";
+  --font-barlow-semibold: "Barlow SemiBold", "sans-serif";
+  --font-barlow-medium: "Barlow Medium", "sans-serif";
+  --font-barlow-thin: "Barlow Thin", "sans-serif";
+}
+
+/* * {
+  font-family: "Barlow", sans-serif;
+} */
