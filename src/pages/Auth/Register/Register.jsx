@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import {
   FaEnvelope,
   FaLock,
@@ -11,12 +12,28 @@ import { Link } from "react-router";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    const isValidate = pattern.test(password);
+
+    if (!isValidate)
+      return toast.error(
+        "Password Must be 6 character long and a uppercase letter and a lowercase letter"
+      );
+  };
   return (
     <div className="w-11/12 max-w-lg mx-auto py-12">
+      <Toaster position="top-center" reverseOrder={false} />
       <h2 className="text-xl font-bold text-center mb-4">
         Create a New Account
       </h2>
-      <form className="space-y-4">
+      <form onSubmit={handleRegister} className="space-y-4">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>
