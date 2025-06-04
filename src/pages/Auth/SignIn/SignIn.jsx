@@ -30,6 +30,7 @@ const SignIn = () => {
               placeholder="Email"
               className="input input-bordered w-full pl-10"
               name="email"
+              required
             />
             <FaEnvelope className="absolute top-3 left-3 text-gray-400 z-10" />
           </div>
@@ -44,6 +45,7 @@ const SignIn = () => {
               placeholder="Password"
               className="input input-bordered w-full pl-10"
               name="password"
+              required
             />
             <FaLock className="absolute top-3 left-3 text-gray-400 z-10" />
             {showPassword ? (
