@@ -29,8 +29,9 @@ const SignIn = () => {
               type="email"
               placeholder="Email"
               className="input input-bordered w-full pl-10"
+              name="email"
             />
-            <FaEnvelope className="absolute top-3 left-3 text-gray-400" />
+            <FaEnvelope className="absolute top-3 left-3 text-gray-400 z-10" />
           </div>
         </div>
         <div className="form-control">
@@ -42,8 +43,9 @@ const SignIn = () => {
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               className="input input-bordered w-full pl-10"
+              name="password"
             />
-            <FaLock className="absolute top-3 left-3 text-gray-400" />
+            <FaLock className="absolute top-3 left-3 text-gray-400 z-10" />
             {showPassword ? (
               <FaEyeSlash
                 onClick={() => setShowPassword((prev) => !prev)}
