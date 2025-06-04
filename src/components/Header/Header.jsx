@@ -1,8 +1,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
 import "./header.css";
+import useAuth from "../../hooks/useAuth";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
+  const { user } = useAuth();
   const links = (
     <>
       <li>
@@ -21,6 +24,7 @@ const Header = () => {
   );
   return (
     <div className="bg-base-100 shadow-sm fixed w-full z-10 top-0">
+      <Tooltip id="my-tooltip" />
       <div className="navbar w-11/12 mx-auto p-0">
         <div className="navbar-start">
           <div className="dropdown">
@@ -55,14 +59,28 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end gap-2">
-          <Link to="/signin" className="btn">
-            Login
-          </Link>
-          <Link to="register" className="btn">
-            Register
-          </Link>
-        </div>
+        {user ? (
+          <div className="navbar-end gap-2">
+            <img
+              className="cursor-pointer h-8 w-8 border-2 rounded-full object-cover"
+              src={user.photoURL}
+              alt="User Image"
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user.displayName}
+              data-tooltip-place="top"
+            />
+            <button className="btn">Logout</button>
+          </div>
+        ) : (
+          <div className="navbar-end gap-2">
+            <Link to="/signin" className="btn">
+              Login
+            </Link>
+            <Link to="register" className="btn">
+              Register
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
