@@ -1,11 +1,13 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import "./header.css";
 import useAuth from "../../hooks/useAuth";
 import { Tooltip } from "react-tooltip";
+import Swal from "sweetalert2";
 
 const Header = () => {
-  const { user } = useAuth();
+  const { user, setUser, signOutUser } = useAuth();
+  const navigate = useNavigate();
   const links = (
     <>
       <li>
@@ -22,6 +24,23 @@ const Header = () => {
       </li>
     </>
   );
+  const handleSignOut = () => {
+    signOutUser()
+      .then((result) => {
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "SignOut Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setUser(null);
+        navigate("/");
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
+  };
   return (
     <div className="bg-base-100 shadow-sm fixed w-full z-10 top-0">
       <Tooltip id="my-tooltip" />
@@ -69,7 +88,9 @@ const Header = () => {
               data-tooltip-content={user.displayName}
               data-tooltip-place="top"
             />
-            <button className="btn">Logout</button>
+            <button onClick={handleSignOut} className="btn">
+              Logout
+            </button>
           </div>
         ) : (
           <div className="navbar-end gap-2">
