@@ -14,7 +14,7 @@ import Spinner from "../../../components/ui/Spinner";
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { user, signInUser, loading, setLoading } = useAuth();
+  const { user, signInUser, signInWithGoogle, loading, setLoading } = useAuth();
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -44,13 +44,39 @@ const SignIn = () => {
         });
       });
   };
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "SignIn Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        setLoading(false);
+        Swal.fire({
+          position: "top",
+          icon: "error",
+          title: error.code,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
   if (loading) return <Spinner />;
   return (
     <div className="w-11/12 max-w-lg mx-auto py-12">
       <h2 className="text-xl font-bold text-center mb-4">
         Log in to your Account
       </h2>
-      <button className="btn btn-outline btn-sm w-full">
+      <button
+        onClick={handleGoogleSignIn}
+        className="btn btn-outline btn-sm w-full"
+      >
         <FaGoogle className="mr-2" /> Google
       </button>
       <div className="divider">or continue with email</div>
