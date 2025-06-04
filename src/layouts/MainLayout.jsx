@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <div className="font-barlow">
       <Header />
-      <div>
+      <div className="mt-[64px]">
         <Outlet />
       </div>
       <Footer />
