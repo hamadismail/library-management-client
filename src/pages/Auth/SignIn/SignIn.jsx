@@ -6,10 +6,45 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
+import Spinner from "../../../components/ui/Spinner";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const { user, signInUser, loading, setLoading } = useAuth();
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signInUser(email, password)
+      .then((result) => {
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "SignIn Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        setLoading(false);
+        Swal.fire({
+          position: "top",
+          icon: "error",
+          title: error.code,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
+  if (loading) return <Spinner />;
   return (
     <div className="w-11/12 max-w-lg mx-auto py-12">
       <h2 className="text-xl font-bold text-center mb-4">
@@ -19,7 +54,7 @@ const SignIn = () => {
         <FaGoogle className="mr-2" /> Google
       </button>
       <div className="divider">or continue with email</div>
-      <form className="space-y-4">
+      <form onSubmit={handleSignIn} className="space-y-4">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>

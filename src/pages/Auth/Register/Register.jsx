@@ -12,6 +12,7 @@ import {
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import Spinner from "../../../components/ui/Spinner";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +22,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUser, setUser } = useAuth();
+  const { createUser, updateUser, setUser, loading, setLoading } = useAuth();
 
   const handleRegister = (data) => {
     const name = data.name;
@@ -50,9 +51,12 @@ const Register = () => {
         navigate("/");
       })
       .catch((error) => {
+        setLoading(false);
         toast.error(error.code);
       });
   };
+
+  if (loading) return <Spinner />;
   return (
     <div className="w-11/12 max-w-lg mx-auto py-12">
       <Toaster position="top-center" reverseOrder={false} />
