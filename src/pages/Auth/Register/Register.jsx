@@ -9,29 +9,49 @@ import {
   FaUser,
   FaLink,
 } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { createUser, updateUser, setUser } = useAuth();
 
-  const handleRegister = (e) => {
-    // e.preventDefault();
-    // const form = e.target;
-    // const email = form.email.value;
-    // const password = form.password.value;
-    // const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-    // const isValidate = pattern.test(password);
-    // if (!isValidate)
-    //   return toast.error(
-    //     "Password Must be 6 character long and a uppercase letter and a lowercase letter"
-    //   );
+  const handleRegister = (data) => {
+    const name = data.name;
+    const email = data.mail;
+    const photo = data.photo;
+    const password = data.password;
 
-    toast.success("login successfully");
+    createUser(email, password)
+      .then((result) => {
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "Account Created Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        const userInfo = result.user;
+
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...userInfo, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            setUser(userInfo);
+          });
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
   };
   return (
     <div className="w-11/12 max-w-lg mx-auto py-12">
@@ -86,6 +106,7 @@ const Register = () => {
               placeholder="Photo Url"
               className="input input-bordered w-full pl-10"
               name="photo"
+              {...register("photo")}
             />
             <FaLink className="absolute top-3 left-3 text-gray-400 z-10" />
           </div>
