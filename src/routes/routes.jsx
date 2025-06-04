@@ -5,8 +5,8 @@ import Error from "../pages/Error/Error";
 import AllBooks from "../pages/AllBooks/AllBooks";
 import AddBook from "../pages/AddBook/AddBook";
 import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks";
-import SignIn from "../pages/SignIn/SignIn";
-import Register from "../pages/Register/Register";
+import SignIn from "../pages/Auth/SignIn/SignIn";
+import Register from "../pages/Auth/Register/Register";
 
 export const router = createBrowserRouter([
   {
