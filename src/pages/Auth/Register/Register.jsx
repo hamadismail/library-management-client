@@ -60,7 +60,7 @@ const Register = () => {
   return (
     <div className="w-11/12 max-w-lg mx-auto py-12">
       <Toaster position="top-center" reverseOrder={false} />
-      <h2 className="text-xl font-bold text-center mb-4">
+      <h2 className="text-xl font-barlow-bold text-center mb-4">
         Create a New Account
       </h2>
       <form onSubmit={handleSubmit(handleRegister)} className="space-y-3">
@@ -161,7 +161,10 @@ const Register = () => {
             Forgot Password?
           </a>
         </div>
-        <button type="submit" className="btn bg-gray-900 text-white w-full">
+        <button
+          type="submit"
+          className="btn bg-gray-900 text-white w-full font-barlow-medium font-normal"
+        >
           Register
         </button>
       </form>

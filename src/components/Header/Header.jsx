@@ -94,7 +94,7 @@ const Header = () => {
             />
             <button
               onClick={handleSignOut}
-              className="btn hover:bg-gray-900 hover:text-white"
+              className="btn font-normal font-barlow-medium bg-gray-900 hover:bg-gray-950 text-white rounded-md"
             >
               Logout
             </button>
@@ -103,13 +103,13 @@ const Header = () => {
           <div className="navbar-end gap-2">
             <Link
               to="/signin"
-              className="btn hover:bg-gray-900 hover:text-white"
+              className="btn font-barlow-medium font-normal bg-gray-900 hover:bg-gray-950 text-white rounded-md"
             >
               Login
             </Link>
             <Link
               to="register"
-              className="btn hover:bg-gray-900 hover:text-white"
+              className="btn font-barlow-medium font-normal bg-white text-gray-900 hover:bg-gray-900 hover:text-white rounded-md"
             >
               Register
             </Link>

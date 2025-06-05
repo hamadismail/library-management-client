@@ -71,7 +71,7 @@ const SignIn = () => {
   if (loading) return <Spinner />;
   return (
     <div className="w-11/12 max-w-lg mx-auto py-12">
-      <h2 className="text-xl font-bold text-center mb-4">
+      <h2 className="text-xl font-barlow-bold text-center mb-4">
         Log in to your Account
       </h2>
       <button
@@ -131,7 +131,10 @@ const SignIn = () => {
             Forgot Password?
           </a>
         </div>
-        <button type="submit" className="btn bg-gray-900 text-white w-full">
+        <button
+          type="submit"
+          className="btn bg-gray-900 text-white w-full font-barlow-medium font-normal"
+        >
           Log in
         </button>
       </form>

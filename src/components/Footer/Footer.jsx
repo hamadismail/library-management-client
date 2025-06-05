@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Site Info */}
           <div>
-            <h2 className="text-2xl font-bold mb-3">Redora</h2>
+            <h2 className="text-2xl font-barlow-bold mb-3">Redora</h2>
             <p className="text-sm">
               A smart and responsive Library Management System for schools.
               Discover, borrow, and manage books seamlessly.
@@ -17,7 +17,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
+            <h3 className="text-xl font-barlow-semibold mb-3">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="hover:underline">
@@ -49,7 +49,9 @@ const Footer = () => {
 
           {/* Contact & Social */}
           <div>
-            <h3 className="text-xl font-semibold mb-3">Contact & Social</h3>
+            <h3 className="text-xl font-barlow-semibold mb-3">
+              Contact & Social
+            </h3>
             <p className="text-sm">Email: support@redora.com</p>
             <p className="text-sm mb-4">Phone: +880-1234-567890</p>
             <div className="flex space-x-4 text-2xl">
