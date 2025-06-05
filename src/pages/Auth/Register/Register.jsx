@@ -161,7 +161,7 @@ const Register = () => {
             Forgot Password?
           </a>
         </div>
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn bg-gray-900 text-white w-full">
           Register
         </button>
       </form>

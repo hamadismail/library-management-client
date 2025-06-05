@@ -7,6 +7,7 @@ import AddBook from "../pages/AddBook/AddBook";
 import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks";
 import SignIn from "../pages/Auth/SignIn/SignIn";
 import Register from "../pages/Auth/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -15,9 +16,30 @@ export const router = createBrowserRouter([
     Component: MainLayout,
     children: [
       { index: true, Component: Home },
-      { path: "all-books", Component: AllBooks },
-      { path: "add-book", Component: AddBook },
-      { path: "borrowed-books", Component: BorrowedBooks },
+      {
+        path: "all-books",
+        element: (
+          <PrivateRoute>
+            <AllBooks />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "add-book",
+        element: (
+          <PrivateRoute>
+            <AddBook />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "borrowed-books",
+        element: (
+          <PrivateRoute>
+            <BorrowedBooks />
+          </PrivateRoute>
+        ),
+      },
       { path: "signin", Component: SignIn },
       { path: "register", Component: Register },
     ],

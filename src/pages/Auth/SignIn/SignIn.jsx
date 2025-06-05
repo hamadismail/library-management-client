@@ -6,7 +6,7 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import Spinner from "../../../components/ui/Spinner";
@@ -14,6 +14,7 @@ import Spinner from "../../../components/ui/Spinner";
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, signInUser, signInWithGoogle, loading, setLoading } = useAuth();
 
   const handleSignIn = (e) => {
@@ -31,7 +32,7 @@ const SignIn = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         setLoading(false);
@@ -54,7 +55,7 @@ const SignIn = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         setLoading(false);
@@ -130,7 +131,7 @@ const SignIn = () => {
             Forgot Password?
           </a>
         </div>
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn bg-gray-900 text-white w-full">
           Log in
         </button>
       </form>

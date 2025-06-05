@@ -13,15 +13,19 @@ const Header = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/all-books">All Books</NavLink>
-      </li>
-      <li>
-        <NavLink to="/add-book">Add Book</NavLink>
-      </li>
-      <li>
-        <NavLink to="/borrowed-books">Borrowed Books</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/all-books">All Books</NavLink>
+          </li>
+          <li>
+            <NavLink to="/add-book">Add Book</NavLink>
+          </li>
+          <li>
+            <NavLink to="/borrowed-books">Borrowed Books</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   const handleSignOut = () => {
@@ -88,16 +92,25 @@ const Header = () => {
               data-tooltip-content={user.displayName}
               data-tooltip-place="top"
             />
-            <button onClick={handleSignOut} className="btn">
+            <button
+              onClick={handleSignOut}
+              className="btn hover:bg-gray-900 hover:text-white"
+            >
               Logout
             </button>
           </div>
         ) : (
           <div className="navbar-end gap-2">
-            <Link to="/signin" className="btn">
+            <Link
+              to="/signin"
+              className="btn hover:bg-gray-900 hover:text-white"
+            >
               Login
             </Link>
-            <Link to="register" className="btn">
+            <Link
+              to="register"
+              className="btn hover:bg-gray-900 hover:text-white"
+            >
               Register
             </Link>
           </div>
