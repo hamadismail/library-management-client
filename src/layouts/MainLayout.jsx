@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <div className="font-barlow">
       <Header />
-      <div className="mt-[64px]">
+      <div className="mt-[64px] min-h-[calc(100vh-433px)]">
         <Outlet />
       </div>
       <Footer />
