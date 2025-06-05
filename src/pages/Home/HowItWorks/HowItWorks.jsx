@@ -1,4 +1,3 @@
-// components/HowItWorks.jsx
 import { FaBookOpen, FaUpload, FaClipboardList } from "react-icons/fa";
 
 const steps = [
@@ -33,7 +32,7 @@ const HowItWorks = () => {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl p-6 shadow hover:shadow-md transition"
+              className="bg-white rounded-xl px-6 py-12 shadow hover:shadow-md transition"
             >
               <div className="mb-4 flex justify-center">{step.icon}</div>
               <h3 className="text-xl font-barlow-semibold mb-2">
