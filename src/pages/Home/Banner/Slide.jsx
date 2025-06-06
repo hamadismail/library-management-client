@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { motion } from "framer-motion";
 import "./slide.css";
 
 const Slide = ({ slide }) => {
@@ -17,14 +18,27 @@ const Slide = ({ slide }) => {
           {slide.button.text}
         </Link>
       </div>
-      <div>
-        <img
-          src={slide.image}
-          alt={slide.title}
-          width="450px"
-          className="rounded-md slide-img"
-        />
-      </div>
+      <motion.div
+        animate={{
+          // y: [0, -10, 0], // bounce effect
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "loop",
+          // delay: idx * 0.5, // stagger
+        }}
+      >
+        <div>
+          <img
+            src={slide.image}
+            alt={slide.title}
+            width="450px"
+            className="rounded-md slide-img"
+          />
+        </div>
+      </motion.div>
     </div>
   );
 };

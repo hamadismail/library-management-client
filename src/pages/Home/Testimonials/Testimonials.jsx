@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const testimonials = [
   {
     name: "Cavan S.",
@@ -30,19 +28,9 @@ const Testimonials = () => {
         </h2>
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="bg-gray-50 px-6 py-8 rounded-lg shadow hover:shadow-md transition"
-              animate={{
-                y: [0, -10, 0], // bounce effect
-                // scale: [1, 1.05, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "loop",
-                delay: idx * 0.5, // stagger
-              }}
             >
               <img
                 src={t.image}
@@ -51,7 +39,7 @@ const Testimonials = () => {
               />
               <p className="text-gray-700 italic mb-4">"{t.feedback}"</p>
               <h4 className="text-center font-barlow-semibold">{t.name}</h4>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

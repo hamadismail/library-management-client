@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Link } from "react-router";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -67,8 +66,9 @@ const Banner = () => {
             swiper.params.navigation.nextEl = nextRef.current;
           }}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 5000 }}
           loop
+          speed={1000}
           className="rounded-lg shadow-md w-11/12 mx-auto"
         >
           {slides.map((slide, index) => (
