@@ -1,6 +1,38 @@
+import axios from "axios";
 import React from "react";
+import Swal from "sweetalert2";
 
-const BorrowedBookCard = ({ book }) => {
+const BorrowedBookCard = ({ book, borrowedBooks, setBorrowedBooks }) => {
+  const handleReturn = (book) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, returned it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/borrowed/${book._id}`)
+          .then((data) => {
+            if (data.data) {
+              Swal.fire({
+                title: "Returned!",
+                text: "You Returned this book",
+                icon: "success",
+              });
+            }
+            // Update the state after deletion
+            setBorrowedBooks(borrowedBooks.filter((b) => b._id !== book._id));
+          })
+          .catch((error) => {
+            Swal.fire("Error", "Failed to return the book", error);
+          });
+      }
+    });
+  };
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
       <img

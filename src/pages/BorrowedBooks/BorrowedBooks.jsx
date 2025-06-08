@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import BorrowedBookCard from "./BorrowedBookCard";
 import { ScaleLoader } from "react-spinners";
@@ -20,26 +19,6 @@ const BorrowedBooks = () => {
     }
   }, [user?.email]);
 
-  const handleReturn = async (book) => {
-    try {
-      await axios.patch(
-        `http://localhost:3000/increase-quantity/${book.bookId}`
-      );
-
-      await axios.delete(`http://localhost:3000/borrowed-books/${book._id}`);
-      setBorrowedBooks(borrowedBooks.filter((b) => b._id !== book._id));
-
-      Swal.fire({
-        icon: "success",
-        title: "Book returned successfully!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    } catch (error) {
-      Swal.fire("Error", "Failed to return the book", "error");
-    }
-  };
-
   return (
     <section className="min-h-screen bg-gray-100 py-10 px-4">
       <div className="max-w-6xl mx-auto">
@@ -58,7 +37,12 @@ const BorrowedBooks = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {borrowedBooks.map((book) => (
-              <BorrowedBookCard key={book._id} book={book} />
+              <BorrowedBookCard
+                key={book._id}
+                book={book}
+                borrowedBooks={borrowedBooks}
+                setBorrowedBooks={setBorrowedBooks}
+              />
             ))}
           </div>
         )}

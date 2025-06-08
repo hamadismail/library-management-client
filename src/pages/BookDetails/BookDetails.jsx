@@ -5,6 +5,7 @@ import Spinner from "../../components/ui/Spinner";
 import StarRating from "../../components/ui/StarRating";
 import useAuth from "../../hooks/useAuth";
 import { Dialog } from "@headlessui/react";
+import Swal from "sweetalert2";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const BookDetails = () => {
         setLoading(false);
       })
       .catch((err) => {
-        alert("Error fetching book.");
+        Swal.fire("Error", "No Book Found", err.code);
         setLoading(false);
       });
   }, [id]);
@@ -48,7 +49,12 @@ const BookDetails = () => {
 
     const isBorrowed = borrowedBook.find((b) => b.bookId === book._id);
     if (isBorrowed) {
-      alert("This book is already borrowed");
+      Swal.fire({
+        icon: "error",
+        title: "This book is already borrowed",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       setIsModalOpen(false);
       return;
     }
@@ -67,8 +73,13 @@ const BookDetails = () => {
         quantity: Math.max(parseInt(prev.quantity) - 1, 0),
       }));
 
+      Swal.fire({
+        icon: "success",
+        title: "Book borrowed successfully!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       setIsModalOpen(false);
-      alert("Book borrowed successfully!");
       navigate(`/borrowed-books?email=${user.email}`);
     } catch (err) {
       alert("Failed to borrow book.");
@@ -85,7 +96,9 @@ const BookDetails = () => {
 
   if (!book) {
     return (
-      <div className="text-center text-red-500 mt-20">Book not found.</div>
+      <div className="text-center text-red-500 mt-20 mb-10">
+        Book not found.
+      </div>
     );
   }
 
