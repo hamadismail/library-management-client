@@ -169,7 +169,7 @@ const AddBook = () => {
               onChange={handleChange}
               min="1"
               max="5"
-              step="0.1"
+              step="0.5"
               placeholder="4.5"
               className="w-full border border-gray-300 rounded-md p-2"
               required

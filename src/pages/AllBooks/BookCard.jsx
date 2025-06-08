@@ -1,6 +1,7 @@
 import React from "react";
 import { FaEye } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
+import StarRating from "../../components/ui/StarRating";
 
 const BookCard = ({ book }) => {
   return (
@@ -14,7 +15,13 @@ const BookCard = ({ book }) => {
         <h3 className="text-xl font-semibold text-gray-800">{book.name}</h3>
         <p className="text-gray-600">Author: {book.author}</p>
         <p className="text-gray-600">Category: {book.category}</p>
-        <p className="text-gray-600">Rating: ⭐ {book.rating}</p>
+        <p className="text-gray-600 flex items-center gap-2">
+          <span>Rating:</span>
+          <span className="pt-1">
+            <StarRating value={book.rating} />
+          </span>
+          <span>({book.rating})</span>
+        </p>
         <p className="text-gray-600">Quantity: {book.quantity}</p>
 
         <div className="flex justify-between items-center">
