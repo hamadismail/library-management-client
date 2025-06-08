@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const UpdateBook = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [book, setBook] = useState({
     name: "",
     author: "",
@@ -48,8 +49,10 @@ const UpdateBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { _id, ...updatedBook } = book;
+    setLoading(true);
     axios
-      .put(`http://localhost:3000/update/${id}`, book)
+      .put(`http://localhost:3000/update/${id}`, updatedBook)
       .then(() => {
         Swal.fire({
           icon: "success",
@@ -59,7 +62,8 @@ const UpdateBook = () => {
         });
         navigate("/all-books");
       })
-      .catch((err) => alert(err));
+      .catch((err) => alert(err))
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -202,9 +206,33 @@ const UpdateBook = () => {
           <div className="md:col-span-2 flex justify-end">
             <button
               type="submit"
-              className="bg-gray-900 hover:bg-gray-950 cursor-pointer text-white font-barlow-semibold px-6 py-2 rounded-md"
+              disabled={loading}
+              className="bg-gray-900 hover:bg-gray-950 cursor-pointer text-white font-barlow-semibold px-6 py-2 rounded-md flex items-center gap-2"
             >
-              ✅ Update Book
+              {loading ? (
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4l-3 3 3 3H4z"
+                  ></path>
+                </svg>
+              ) : (
+                "✅ Update Book"
+              )}
             </button>
           </div>
         </form>
