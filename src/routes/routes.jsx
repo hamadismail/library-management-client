@@ -8,6 +8,7 @@ import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks";
 import SignIn from "../pages/Auth/SignIn/SignIn";
 import Register from "../pages/Auth/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import BookDetails from "../pages/BookDetails/BookDetails";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,15 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <BorrowedBooks />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "book-details/:id",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <BookDetails />
           </PrivateRoute>
         ),
       },

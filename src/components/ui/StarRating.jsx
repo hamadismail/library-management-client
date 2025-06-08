@@ -1,15 +1,18 @@
 import React from "react";
-import Rating from "react-rating";
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { Rating } from "react-simple-star-rating";
 
 const StarRating = ({ value }) => {
   return (
     <Rating
+      className="pb-1"
       readonly
-      initialRating={value}
-      emptySymbol={<FaRegStar className="text-yellow-400" />}
-      fullSymbol={<FaStar className="text-yellow-400" />}
-      fractions={2} // Allows half-star rating
+      initialValue={value}
+      allowFraction
+      size={20}
+      SVGstyle={{ display: "inline-block" }}
+      transition
+      fillColor="#fbbf24"
+      emptyColor="#e5e7eb"
     />
   );
 };
