@@ -2,14 +2,20 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import BookCard from "./BookCard";
 import BookTable from "./BookTable";
+import { ScaleLoader } from "react-spinners";
 
 const AllBooks = () => {
+  const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
   const [viewMode, setViewMode] = useState("card");
   const [showAvailable, setShowAvailable] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/books").then((res) => setBooks(res.data));
+    axios
+      .get("http://localhost:3000/books")
+      .then((res) => setBooks(res.data))
+      .catch((error) => alert(error.code))
+      .finally(() => setLoading(false));
   }, []);
 
   const filteredBooks = showAvailable
@@ -43,6 +49,11 @@ const AllBooks = () => {
         </div>
 
         {/* Views */}
+        {loading && (
+          <div className="flex justify-center">
+            <ScaleLoader />
+          </div>
+        )}
         {viewMode === "card" ? (
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {filteredBooks.map((book) => (
