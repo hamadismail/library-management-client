@@ -69,7 +69,7 @@ const Banner = () => {
           autoplay={{ delay: 5000 }}
           loop
           speed={1000}
-          className="rounded-lg shadow-md w-11/12 mx-auto"
+          className="rounded-lg shadow-md max-w-6xl mx-auto"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
