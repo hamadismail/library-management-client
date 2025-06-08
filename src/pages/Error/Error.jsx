@@ -13,7 +13,7 @@ const Error = () => {
         <p className="mb-3 text-xl font-barlow-bold text-gray-900 md:text-2xl">
           {error?.error?.message || "Something Went Wrong!"}
         </p>
-        <Link className="btn" to="/">
+        <Link className="btn bg-gray-900 text-white hover:bg-gray-950" to="/">
           Go To Homepage
         </Link>
       </div>

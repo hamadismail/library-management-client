@@ -59,31 +59,30 @@ const BookDetails = () => {
       return;
     }
 
-    try {
-      await axios.post("http://localhost:3000/borrow", {
+    axios
+      .post("http://localhost:3000/borrow", {
         bookId: book._id,
         userEmail: user.email,
         userName: user.displayName,
         returnDate,
+      })
+      .then((res) => {
+        Swal.fire({
+          icon: "success",
+          title: "Book borrowed successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setIsModalOpen(false);
+        navigate(`/borrowed-books?email=${user.email}`);
+        setBook((prev) => ({
+          ...prev,
+          quantity: Math.max(parseInt(prev.quantity) - 1, 0),
+        }));
+      })
+      .catch((err) => {
+        Swal.fire("Error", "Failed to borrow book.", err.code);
       });
-
-      // Decrease quantity (but not below 0)
-      setBook((prev) => ({
-        ...prev,
-        quantity: Math.max(parseInt(prev.quantity) - 1, 0),
-      }));
-
-      Swal.fire({
-        icon: "success",
-        title: "Book borrowed successfully!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      setIsModalOpen(false);
-      navigate(`/borrowed-books?email=${user.email}`);
-    } catch (err) {
-      alert("Failed to borrow book.");
-    }
   };
 
   if (loading) {
