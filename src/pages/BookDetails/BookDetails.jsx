@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import Spinner from "../../components/ui/Spinner";
 import StarRating from "../../components/ui/StarRating";
@@ -9,10 +9,12 @@ import { Dialog } from "@headlessui/react";
 const BookDetails = () => {
   const { id } = useParams();
   const [book, setBook] = useState(null);
+  const [borrowedBook, setBorrowedBook] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [returnDate, setReturnDate] = useState("");
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -27,9 +29,29 @@ const BookDetails = () => {
       });
   }, [id]);
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/borrowed-books?email=${user.email}`)
+      .then((res) => {
+        setBorrowedBook(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        alert("Error fetching borrowed books.");
+        setLoading(false);
+      });
+  }, [user.email]);
+
   const handleBorrow = async () => {
     if (!returnDate || !user) return;
     if (book.quantity <= 0) return;
+
+    const isBorrowed = borrowedBook.find((b) => b.bookId === book._id);
+    if (isBorrowed) {
+      alert("This book is already borrowed");
+      setIsModalOpen(false);
+      return;
+    }
 
     try {
       await axios.post("http://localhost:3000/borrow", {
@@ -47,6 +69,7 @@ const BookDetails = () => {
 
       setIsModalOpen(false);
       alert("Book borrowed successfully!");
+      navigate(`/borrowed-books?email=${user.email}`);
     } catch (err) {
       alert("Failed to borrow book.");
     }

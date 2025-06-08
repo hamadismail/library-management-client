@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "borrowed-books",
+        path: `borrowed-books`,
         element: (
           <PrivateRoute>
             <BorrowedBooks />

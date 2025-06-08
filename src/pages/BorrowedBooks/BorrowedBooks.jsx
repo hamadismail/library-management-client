@@ -26,10 +26,7 @@ const BorrowedBooks = () => {
         `http://localhost:3000/increase-quantity/${book.bookId}`
       );
 
-      // Step 2: Remove from borrowed list
       await axios.delete(`http://localhost:3000/borrowed-books/${book._id}`);
-
-      // Step 3: Update UI
       setBorrowedBooks(borrowedBooks.filter((b) => b._id !== book._id));
 
       Swal.fire({
