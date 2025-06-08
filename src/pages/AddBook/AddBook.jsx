@@ -1,7 +1,11 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { FiUpload } from "react-icons/fi";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const AddBook = () => {
+  const navigate = useNavigate();
   const [book, setBook] = useState({
     name: "",
     author: "",
@@ -36,8 +40,21 @@ const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Submit book to database
-    console.log(book);
+    axios
+      .post("http://localhost:3000/books", book)
+      .then((result) => {
+        if (result.data.insertedId) {
+          Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "New Book Added to the Library",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        navigate("/all-books");
+      })
+      .catch((error) => alert(error.code));
   };
 
   return (
@@ -136,7 +153,6 @@ const AddBook = () => {
               <option value="Novel">Novel</option>
               <option value="Thriller">Thriller</option>
               <option value="History">History</option>
-              <option value="Drama">Drama</option>
               <option value="Sci-Fi">Sci-Fi</option>
             </select>
           </div>
