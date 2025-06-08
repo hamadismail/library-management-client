@@ -26,7 +26,7 @@ const BookCard = ({ book }) => {
 
         <div className="flex justify-between items-center">
           <button
-            onClick={() => navigate(`/book-details/${book._id}`)}
+            onClick={() => navigate(`/book/${book._id}`)}
             className="mt-2 cursor-pointer flex items-center gap-2 bg-gray-900 text-white px-4 py-1.5 rounded hover:bg-gray-950"
           >
             <FaEye />
