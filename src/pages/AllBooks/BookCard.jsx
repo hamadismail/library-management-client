@@ -33,7 +33,10 @@ const BookCard = ({ book }) => {
             Details
           </button>
 
-          <button className="mt-2 cursor-pointer flex items-center gap-2 bg-gray-900 text-white px-4 py-1.5 rounded hover:bg-gray-950">
+          <button
+            onClick={() => navigate(`/update/${book._id}`)}
+            className="mt-2 cursor-pointer flex items-center gap-2 bg-gray-900 text-white px-4 py-1.5 rounded hover:bg-gray-950"
+          >
             <FiEdit /> Update
           </button>
         </div>
