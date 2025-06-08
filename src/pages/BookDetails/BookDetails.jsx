@@ -90,8 +90,11 @@ const BookDetails = () => {
             <strong>Category:</strong> {book.category}
           </p>
           <p className="text-gray-600">
-            <strong>Quantity:</strong>{" "}
-            {book.quantity > 0 ? book.quantity : "Out of stock"}
+            <strong>Quantity:</strong>
+            <span className={`${book.quantity == 0 && "text-red-600"}`}>
+              {" "}
+              {book.quantity > 0 ? book.quantity : "Out of stock"}
+            </span>
           </p>
 
           {/* Rating */}
@@ -111,9 +114,9 @@ const BookDetails = () => {
           {/* Borrow Button */}
           <button
             onClick={() => setIsModalOpen(true)}
-            disabled={book.quantity === 0}
+            disabled={book.quantity == 0}
             className={`px-5 py-2 text-white rounded ${
-              book.quantity === 0
+              book.quantity == 0
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-gray-900 hover:bg-blue-950 cursor-pointer"
             }`}
@@ -135,26 +138,50 @@ const BookDetails = () => {
             Borrow Book
           </Dialog.Title>
 
-          <div className="space-y-3">
-            <input
-              type="text"
-              value={user?.displayName || ""}
-              disabled
-              className="w-full border p-2 rounded bg-gray-100"
-            />
-            <input
-              type="email"
-              value={user?.email || ""}
-              disabled
-              className="w-full border p-2 rounded bg-gray-100"
-            />
-            <input
-              type="date"
-              value={returnDate}
-              onChange={(e) => setReturnDate(e.target.value)}
-              required
-              className="w-full border p-2 rounded"
-            />
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-1" htmlFor="name">
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                value={user?.displayName || ""}
+                disabled
+                className="w-full border p-2 rounded bg-gray-100"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-1" htmlFor="email">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                value={user?.email || ""}
+                disabled
+                className="w-full border p-2 rounded bg-gray-100"
+              />
+            </div>
+
+            <div>
+              <label
+                className="block text-sm font-medium mb-1"
+                htmlFor="returnDate"
+              >
+                Return Date
+              </label>
+              <input
+                id="returnDate"
+                type="date"
+                value={returnDate}
+                onChange={(e) => setReturnDate(e.target.value)}
+                required
+                className="w-full border p-2 rounded"
+              />
+            </div>
+
             <div className="flex justify-end gap-3 pt-4">
               <button
                 onClick={() => setIsModalOpen(false)}

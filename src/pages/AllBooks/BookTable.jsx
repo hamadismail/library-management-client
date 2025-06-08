@@ -4,10 +4,11 @@ import { FiEdit } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import StarRating from "../../components/ui/StarRating";
 
-const BookTable = ({ book }) => {
+const BookTable = ({ book, idx }) => {
+  const index = idx + 1;
   const navigate = useNavigate();
   return (
-    <tr className="border-t">
+    <tr className={`border-t ${index % 2 === 0 && "bg-gray-200"}`}>
       <td className="px-4 py-2">
         <img
           src={book.image}
@@ -35,7 +36,10 @@ const BookTable = ({ book }) => {
             <FaEye />
           </button>
 
-          <button className="cursor-pointer bg-gray-900 text-white px-4 py-1.5 rounded hover:bg-gray-950">
+          <button
+            onClick={() => navigate(`/update/${book._id}`)}
+            className="cursor-pointer bg-gray-900 text-white px-4 py-1.5 rounded hover:bg-gray-950"
+          >
             <FiEdit />
           </button>
         </div>

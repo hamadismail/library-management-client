@@ -55,7 +55,7 @@ const AllBooks = () => {
           </div>
         )}
         {viewMode === "card" ? (
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {filteredBooks.map((book) => (
               <BookCard key={book._id} book={book} />
             ))}
@@ -64,7 +64,7 @@ const AllBooks = () => {
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white shadow-md rounded-md">
               <thead>
-                <tr className="bg-gray-200 text-left">
+                <tr className="bg-gray-900 text-left text-white">
                   <th className="px-4 py-2">Cover</th>
                   <th className="px-4 py-2">Title</th>
                   <th className="px-4 py-2">Author</th>
@@ -75,8 +75,8 @@ const AllBooks = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredBooks.map((book) => (
-                  <BookTable key={book._id} book={book} />
+                {filteredBooks.map((book, idx) => (
+                  <BookTable key={book._id} book={book} idx={idx} />
                 ))}
               </tbody>
             </table>

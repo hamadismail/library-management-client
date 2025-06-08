@@ -13,7 +13,7 @@ const BookCard = ({ book }) => {
         alt={book.name}
         className="h-48 w-full object-cover"
       />
-      <div className="p-4 space-y-2">
+      <div className="p-4 space-y-1">
         <h3 className="text-xl font-semibold text-gray-800">{book.name}</h3>
         <p className="text-gray-600">Author: {book.author}</p>
         <p className="text-gray-600">Category: {book.category}</p>
