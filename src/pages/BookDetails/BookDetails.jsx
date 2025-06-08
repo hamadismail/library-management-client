@@ -29,8 +29,6 @@ const BookDetails = () => {
 
   const handleBorrow = async () => {
     if (!returnDate || !user) return;
-
-    // Prevent borrowing if quantity is 0
     if (book.quantity <= 0) return;
 
     try {
@@ -44,7 +42,7 @@ const BookDetails = () => {
       // Decrease quantity (but not below 0)
       setBook((prev) => ({
         ...prev,
-        quantity: Math.max(prev.quantity - 1, 0),
+        quantity: Math.max(parseInt(prev.quantity) - 1, 0),
       }));
 
       setIsModalOpen(false);
@@ -76,7 +74,7 @@ const BookDetails = () => {
           <img
             src={book.image}
             alt={book.name}
-            className="w-full max-w-xs rounded-md shadow-md"
+            className="h-96 w-full max-w-xs rounded-md shadow-md"
           />
         </div>
 
