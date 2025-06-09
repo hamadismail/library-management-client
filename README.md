@@ -1,12 +1,46 @@
-# React + Vite
+# Readora - Client Side
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📚 **Live Site:** [https://readora1.web.app/](https://readora1.web.app/)
 
-Currently, two official plugins are available:
+## 📌 Project Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Readora** is a full-stack library management system that allows users to browse, borrow, and manage books online. The client side is built using React and provides a responsive, user-friendly interface for exploring books, managing borrow history, and accessing book details.
 
-## Expanding the ESLint configuration
+## 🚀 Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 Firebase Authentication (Login, Register, Logout)
+- 📚 Browse books by category or full list
+- 📖 View book details and availability
+- 🛒 Borrow books with return date selection
+- 🗂️ Manage user’s borrowed books
+- 🌐 Protected routes and role-based access
+- 🔁 SweetAlert2-based user feedback for actions
+- 📱 Responsive design using Tailwind CSS
+
+## 🧰 Technologies & Packages Used
+
+- React
+- React Router
+- Axios
+- Firebase Authentication
+- Tailwind CSS
+- SweetAlert2
+- @headlessui/react
+- React Icons
+- framer-motion
+- swiper
+- react-hook-form
+- react-simple-star-rating
+- react-spinners
+- react-tooltip
+
+## 📂 Folder Structure Highlights
+
+- `/pages`: Main page components (Home, Book Details, Borrowed Books)
+- `/components`: Reusable UI components (Spinner, StarRating, etc.)
+- `/api`: Custom React hooks for fetching backend data
+- `/hooks`: Custom utility and authentication hooks
+
+## 🔗 Github Repository
+
+[Client Repository](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-hamadismail)
