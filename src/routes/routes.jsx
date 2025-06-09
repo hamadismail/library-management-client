@@ -10,6 +10,7 @@ import Register from "../pages/Auth/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import BookDetails from "../pages/BookDetails/BookDetails";
 import UpdatePage from "../pages/UpdateBook/UpdateBook";
+import BooksByCategory from "../pages/BooksByCategory/BooksByCategory";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             <UpdatePage />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "books/category/:id",
+        Component: BooksByCategory,
       },
       { path: "signin", Component: SignIn },
       { path: "register", Component: Register },

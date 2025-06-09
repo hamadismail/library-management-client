@@ -22,9 +22,7 @@ const Header = () => {
             <NavLink to="/add-book">Add Book</NavLink>
           </li>
           <li>
-            <NavLink to={`/borrowed-books?email=${user.email}`}>
-              Borrowed Books
-            </NavLink>
+            <NavLink to={"/borrowed-books"}>Borrowed Books</NavLink>
           </li>
         </>
       )}
