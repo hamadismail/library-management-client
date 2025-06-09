@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Spinner from "../components/ui/Spinner";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const useBooks = () => {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
 
+  const axiosSecure = useAxiosSecure();
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/books")
+    axiosSecure
+      .get("/books")
       .then((res) => setBooks(res.data))
       .catch((error) => alert(error.code))
       .finally(() => setLoading(false));

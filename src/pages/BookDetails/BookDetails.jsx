@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import useBookDetails from "../../api/useBookDetails";
 import useBorrowedBooks from "../../api/useBorrowedBooks";
 import useTitle from "../../hooks/useTitle";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -16,6 +17,7 @@ const BookDetails = () => {
   const [returnDate, setReturnDate] = useState("");
   const { user } = useAuth();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   const { book, loading } = useBookDetails(id);
   const { borrowedBook } = useBorrowedBooks(user.email);
@@ -38,8 +40,8 @@ const BookDetails = () => {
       return;
     }
 
-    await axios
-      .post("http://localhost:3000/borrow", {
+    await axiosSecure
+      .post("/borrow", {
         bookId: book._id,
         userEmail: user.email,
         userName: user.displayName,

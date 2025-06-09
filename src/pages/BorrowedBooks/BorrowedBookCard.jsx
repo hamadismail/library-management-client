@@ -1,8 +1,11 @@
 import axios from "axios";
 import React from "react";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const BorrowedBookCard = ({ book, borrowedBooks, setBorrowedBooks }) => {
+  const axiosSecure = useAxiosSecure();
+
   const handleReturn = (book) => {
     Swal.fire({
       title: "Are you sure?",
@@ -14,8 +17,8 @@ const BorrowedBookCard = ({ book, borrowedBooks, setBorrowedBooks }) => {
       confirmButtonText: "Yes, returned it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`http://localhost:3000/borrowed/${book._id}`)
+        axiosSecure
+          .delete(`/borrowed/${book._id}`)
           .then((data) => {
             if (data.data) {
               Swal.fire({

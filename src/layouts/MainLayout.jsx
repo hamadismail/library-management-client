@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/Header/Header";
 import { Outlet, useNavigation } from "react-router";
+import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Spinner from "../components/ui/Spinner";
 

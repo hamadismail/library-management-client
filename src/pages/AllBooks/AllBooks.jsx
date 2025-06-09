@@ -4,14 +4,11 @@ import BookCard from "./BookCard";
 import BookTable from "./BookTable";
 import { ScaleLoader } from "react-spinners";
 import useBooks from "../../api/useBooks";
-import useTitle from "../../hooks/useTitle";
 
 const AllBooks = () => {
   const [viewMode, setViewMode] = useState("card");
   const [showAvailable, setShowAvailable] = useState(false);
   const { books, loading } = useBooks();
-
-  useTitle("All Books || Redora");
 
   const filteredBooks = showAvailable
     ? books.filter((book) => Number(book.quantity) > 0)

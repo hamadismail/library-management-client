@@ -4,6 +4,7 @@ import { FiUpload } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AddBook = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const AddBook = () => {
     description: "",
     image: null,
   });
-
+  const axiosSecure = useAxiosSecure();
   useTitle("Add Book || Redora");
 
   const handleChange = (e) => {
@@ -43,8 +44,8 @@ const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3000/books", book)
+    axiosSecure
+      .post("/books", book)
       .then((result) => {
         if (result.data.insertedId) {
           Swal.fire({

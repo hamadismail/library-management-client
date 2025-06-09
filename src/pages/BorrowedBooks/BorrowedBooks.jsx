@@ -4,23 +4,18 @@ import useAuth from "../../hooks/useAuth";
 import BorrowedBookCard from "./BorrowedBookCard";
 import { ScaleLoader } from "react-spinners";
 import useTitle from "../../hooks/useTitle";
+import useBorrowedBooks from "../../api/useBorrowedBooks";
+import Spinner from "../../components/ui/Spinner";
 
 const BorrowedBooks = () => {
-  const [loading, setLoading] = useState(true);
   const { user } = useAuth();
-  const [borrowedBooks, setBorrowedBooks] = useState([]);
+  const { borrowedBook, setBorrowedBook, loading } = useBorrowedBooks(
+    user.email
+  );
 
   useTitle("Borrowed Books || Redora");
 
-  useEffect(() => {
-    if (user?.email) {
-      axios
-        .get(`http://localhost:3000/borrowed-books?email=${user.email}`)
-        .then((res) => setBorrowedBooks(res.data))
-        .catch((err) => alert(err))
-        .finally(() => setLoading(false));
-    }
-  }, [user?.email]);
+  if (!borrowedBook) return <Spinner />;
 
   return (
     <section className="min-h-screen bg-gray-100 py-10 px-4">
@@ -29,22 +24,16 @@ const BorrowedBooks = () => {
           📚 Your Borrowed Books
         </h2>
 
-        {loading && (
-          <div className="flex justify-center">
-            <ScaleLoader />
-          </div>
-        )}
-
-        {borrowedBooks.length === 0 && !loading ? (
+        {borrowedBook.length === 0 && !loading ? (
           <p className="text-center text-gray-600">No borrowed books found.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {borrowedBooks.map((book) => (
+            {borrowedBook?.map((book) => (
               <BorrowedBookCard
                 key={book._id}
                 book={book}
-                borrowedBooks={borrowedBooks}
-                setBorrowedBooks={setBorrowedBooks}
+                borrowedBooks={borrowedBook}
+                setBorrowedBooks={setBorrowedBook}
               />
             ))}
           </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import "./header.css";
-import useAuth from "../../hooks/useAuth";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
   const { user, setUser, signOutUser } = useAuth();

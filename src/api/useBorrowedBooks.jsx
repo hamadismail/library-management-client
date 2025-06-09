@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const useBorrowedBooks = (email) => {
   const [borrowedBook, setBorrowedBook] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const axiosSecure = useAxiosSecure();
+
   useEffect(() => {
     if (!email) return;
-    axios
-      .get(`http://localhost:3000/borrowed-books?email=${email}`)
+    axiosSecure
+      .get(`/borrowed-books?email=${email}`)
       .then((res) => {
         setBorrowedBook(res.data);
       })
@@ -20,7 +22,7 @@ const useBorrowedBooks = (email) => {
       });
   }, [email]);
 
-  return { borrowedBook };
+  return { borrowedBook, setBorrowedBook, loading };
 };
 
 export default useBorrowedBooks;

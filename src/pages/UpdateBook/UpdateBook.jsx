@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import { useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UpdateBook = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const axiosSecure = useAxiosSecure();
   const [book, setBook] = useState({
     name: "",
     author: "",
@@ -19,8 +21,8 @@ const UpdateBook = () => {
   });
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/book/${id}`)
+    axiosSecure
+      .get(`/book/${id}`)
       .then((res) => setBook(res.data))
       .catch((err) => alert(err));
   }, [id]);
@@ -51,8 +53,8 @@ const UpdateBook = () => {
     e.preventDefault();
     const { _id, ...updatedBook } = book;
     setLoading(true);
-    axios
-      .put(`http://localhost:3000/update/${id}`, updatedBook)
+    axiosSecure
+      .put(`/update/${id}`, updatedBook)
       .then(() => {
         Swal.fire({
           icon: "success",
