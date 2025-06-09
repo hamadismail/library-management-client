@@ -3,11 +3,14 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import BorrowedBookCard from "./BorrowedBookCard";
 import { ScaleLoader } from "react-spinners";
+import useTitle from "../../hooks/useTitle";
 
 const BorrowedBooks = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const [borrowedBooks, setBorrowedBooks] = useState([]);
+
+  useTitle("Borrowed Books || Redora");
 
   useEffect(() => {
     if (user?.email) {

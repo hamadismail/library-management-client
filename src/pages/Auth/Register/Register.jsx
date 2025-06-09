@@ -13,6 +13,7 @@ import { Link, useNavigate } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import Spinner from "../../../components/ui/Spinner";
+import useTitle from "../../../hooks/useTitle";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +24,8 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const { createUser, updateUser, setUser, loading, setLoading } = useAuth();
+
+  useTitle("Register || Redora");
 
   const handleRegister = (data) => {
     const name = data.name;

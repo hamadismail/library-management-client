@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 import Spinner from "../../components/ui/Spinner";
 import BookCard from "../AllBooks/BookCard";
+import useTitle from "../../hooks/useTitle";
 
 const BooksByCategory = () => {
   const { id } = useParams();
@@ -21,6 +22,8 @@ const BooksByCategory = () => {
         setLoading(false);
       });
   }, [id]);
+
+  useTitle(`${books[0]?.category} || Redora`);
 
   if (loading) return <Spinner />;
 

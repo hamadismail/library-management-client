@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddBook = () => {
   const navigate = useNavigate();
@@ -15,6 +16,8 @@ const AddBook = () => {
     description: "",
     image: null,
   });
+
+  useTitle("Add Book || Redora");
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;

@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, useRouteError } from "react-router";
+import useTitle from "../../hooks/useTitle";
 
 const Error = () => {
   const error = useRouteError();
+  useTitle("404 Not Found");
 
   return (
     <div className="h-screen flex justify-center items-center">

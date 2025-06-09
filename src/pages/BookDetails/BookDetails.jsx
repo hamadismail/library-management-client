@@ -6,42 +6,21 @@ import StarRating from "../../components/ui/StarRating";
 import useAuth from "../../hooks/useAuth";
 import { Dialog } from "@headlessui/react";
 import Swal from "sweetalert2";
+import useBookDetails from "../../api/useBookDetails";
+import useBorrowedBooks from "../../api/useBorrowedBooks";
+import useTitle from "../../hooks/useTitle";
 
 const BookDetails = () => {
   const { id } = useParams();
-  const [book, setBook] = useState(null);
-  const [borrowedBook, setBorrowedBook] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [returnDate, setReturnDate] = useState("");
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3000/book/${id}`)
-      .then((res) => {
-        setBook(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        Swal.fire("Error", "No Book Found", err.code);
-        setLoading(false);
-      });
-  }, [id]);
+  const { book, loading } = useBookDetails(id);
+  const { borrowedBook } = useBorrowedBooks(user.email);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3000/borrowed-books?email=${user.email}`)
-      .then((res) => {
-        setBorrowedBook(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        alert("Error fetching borrowed books.");
-        setLoading(false);
-      });
-  }, [user.email]);
+  useTitle(`${book?.name} | Book Details`);
 
   const handleBorrow = async () => {
     if (!returnDate || !user) return;
@@ -59,7 +38,7 @@ const BookDetails = () => {
       return;
     }
 
-    axios
+    await axios
       .post("http://localhost:3000/borrow", {
         bookId: book._id,
         userEmail: user.email,
@@ -74,11 +53,7 @@ const BookDetails = () => {
           timer: 1500,
         });
         setIsModalOpen(false);
-        navigate(`/borrowed-books?email=${user.email}`);
-        setBook((prev) => ({
-          ...prev,
-          quantity: Math.max(parseInt(prev.quantity) - 1, 0),
-        }));
+        navigate(`/borrowed-books`);
       })
       .catch((err) => {
         Swal.fire("Error", "Failed to borrow book.", err.code);

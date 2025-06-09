@@ -10,12 +10,15 @@ import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import Spinner from "../../../components/ui/Spinner";
+import useTitle from "../../../hooks/useTitle";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { user, signInUser, signInWithGoogle, loading, setLoading } = useAuth();
+
+  useTitle("SignIn || Redora");
 
   const handleSignIn = (e) => {
     e.preventDefault();

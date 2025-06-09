@@ -15,7 +15,7 @@ const Header = () => {
       </li>
       {user && (
         <>
-          <li>
+          <li onClick={window.scrollTo(0, 0)}>
             <NavLink to="/all-books">All Books</NavLink>
           </li>
           <li>
@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <div className="bg-base-100 shadow-sm fixed w-full z-10 top-0">
       <Tooltip id="my-tooltip" />
-      <div className="navbar max-w-6xl mx-auto p-0">
+      <div className="navbar max-w-6xl mx-auto p-2">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
