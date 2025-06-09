@@ -12,7 +12,7 @@ const BooksByCategory = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/books/category/${id}`)
+      .get(`https://redora.vercel.app/books/category/${id}`)
       .then((res) => {
         setBooks(res.data);
         setLoading(false);

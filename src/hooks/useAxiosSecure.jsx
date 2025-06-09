@@ -2,7 +2,7 @@ import axios from "axios";
 import useAuth from "./useAuth";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://redora.vercel.app",
 });
 
 const useAxiosSecure = () => {
@@ -19,7 +19,7 @@ const useAxiosSecure = () => {
       return response;
     },
     (error) => {
-      alert(error);
+      // alert(error);
       if (error.status === 401 || error.status === 403) {
         signOutUser()
           .then(() => {
