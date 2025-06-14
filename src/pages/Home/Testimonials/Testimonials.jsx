@@ -30,7 +30,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Voices of Our Community</h2>
+          <h2 className="text-4xl font-barlow-semibold text-gray-900 mb-4">Voices of Our Community</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover what our members are saying about their reading experience
           </p>
@@ -71,7 +71,7 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                  <h4 className="font-barlow-semibold text-gray-900">{testimonial.name}</h4>
                   <p className="text-sm text-gray-500">{testimonial.role}</p>
                 </div>
               </div>
@@ -81,7 +81,7 @@ const Testimonials = () => {
 
         {/* View More (optional) */}
         <div className="text-center mt-12">
-          <button className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
+          <button className="cursor-pointer inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-barlow-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
             Read More Testimonials
           </button>
         </div>

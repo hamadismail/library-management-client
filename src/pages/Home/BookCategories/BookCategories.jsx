@@ -26,7 +26,7 @@ const BookCategories = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Explore Our Categories</h2>
+          <h2 className="text-4xl font-barlow-semibold text-gray-900 mb-4">Explore Our Categories</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover books from your favorite genres and find your next great read
           </p>
@@ -52,10 +52,10 @@ const BookCategories = () => {
 
               {/* Category Info */}
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <div className={`${cat.color} ${cat.textColor} inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-2`}>
+                <div className={`${cat.color} ${cat.textColor} inline-flex items-center px-3 py-1 rounded-full text-xs font-barlow-medium mb-2`}>
                   {cat.name}
                 </div>
-                <h3 className="text-2xl font-bold mb-2">{cat.name}</h3>
+                <h3 className="text-2xl font-barlow-semibold mb-2">{cat.name}</h3>
                 <div className="flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="mr-2">Browse collection</span>
                   <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -72,7 +72,7 @@ const BookCategories = () => {
               navigate('/all-books');
               window.scrollTo(0, 0);
             }}
-            className="cursor-pointer inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+            className="cursor-pointer inline-flex items-center px-4 py-2 border border-transparent text-base rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
           >
             View All Books
           </button>

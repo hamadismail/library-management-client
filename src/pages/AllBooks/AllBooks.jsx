@@ -42,7 +42,7 @@ const AllBooks = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
             <FiBook className="w-8 h-8 text-blue-600" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          <h1 className="text-3xl font-barlow-semibold text-gray-900 sm:text-4xl">
             Our Book Collection
           </h1>
           <p className="mt-3 text-lg text-gray-500 max-w-2xl mx-auto">
@@ -152,7 +152,7 @@ const AllBooks = () => {
                 <div className="mx-auto h-24 w-24 text-gray-400">
                   <FiBook className="w-full h-full" />
                 </div>
-                <h3 className="mt-4 text-lg font-medium text-gray-900">
+                <h3 className="mt-4 text-lg font-barlow-medium text-gray-900">
                   No books found
                 </h3>
                 <p className="mt-2 text-gray-500">
@@ -171,13 +171,13 @@ const AllBooks = () => {
                   <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cover</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        <th className="px-6 py-3 text-left text-xs font-barlow-semibold text-gray-500 uppercase tracking-wider">Cover</th>
+                        <th className="px-6 py-3 text-left text-xs font-barlow-semibold text-gray-500 uppercase tracking-wider">Title</th>
+                        <th className="px-6 py-3 text-left text-xs font-barlow-semibold text-gray-500 uppercase tracking-wider">Author</th>
+                        <th className="px-6 py-3 text-left text-xs font-barlow-semibold text-gray-500 uppercase tracking-wider">Category</th>
+                        <th className="px-6 py-3 text-left text-xs font-barlow-semibold text-gray-500 uppercase tracking-wider">Rating</th>
+                        <th className="px-6 py-3 text-left text-xs font-barlow-semibold text-gray-500 uppercase tracking-wider">Quantity</th>
+                        <th className="px-6 py-3 text-left text-xs font-barlow-semibold text-gray-500 uppercase tracking-wider">Actions</th>
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">

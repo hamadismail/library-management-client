@@ -82,7 +82,7 @@ const BookDetails = () => {
         <div className="bg-red-100 p-6 rounded-full mb-4">
           <FaBookOpen className="text-red-500 text-4xl" />
         </div>
-        <h3 className="text-2xl font-bold text-gray-800 mb-2">Book not found</h3>
+        <h3 className="text-2xl font-barlow-semibold text-gray-800 mb-2">Book not found</h3>
         <p className="text-gray-600 mb-6">The requested book doesn't exist or may have been removed</p>
         <button
           onClick={() => navigate(-1)}
@@ -119,29 +119,29 @@ const BookDetails = () => {
 
             {/* Book Info */}
             <div className="md:w-2/3 p-6 md:p-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{book.name}</h1>
+              <h1 className="text-3xl font-barlow-semibold text-gray-900 mb-2">{book.name}</h1>
               <p className="text-lg text-gray-600 mb-6">{book.author}</p>
 
               <div className="flex items-center gap-4 mb-6">
-                <div className="flex items-center gap-1 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                <div className="flex items-center gap-1 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-barlow-medium">
                   <StarRating value={book.rating} />
                   <span>{Number(book.rating).toFixed(1)}</span>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                <span className={`px-3 py-1 rounded-full text-sm font-barlow-medium ${
                   book.quantity > 0
                     ? "bg-green-100 text-green-800"
                     : "bg-red-100 text-red-800"
                 }`}>
                   {book.quantity > 0 ? `${book.quantity} available` : "Out of stock"}
                 </span>
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-barlow-medium">
                   {book.category}
                 </span>
               </div>
 
               {book.description && (
                 <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Description</h3>
+                  <h3 className="text-lg font-barlow-semibold text-gray-900 mb-2">Description</h3>
                   <p className="text-gray-700 leading-relaxed">{book.description}</p>
                 </div>
               )}
@@ -150,7 +150,7 @@ const BookDetails = () => {
                 <button
                   onClick={() => setIsModalOpen(true)}
                   disabled={book.quantity == 0}
-                  className={`flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3 rounded-lg font-medium transition-colors ${
+                  className={`flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3 rounded-lg font-barlow-medium transition-colors ${
                     book.quantity == 0
                       ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                       : "bg-blue-600 text-white hover:bg-blue-700 shadow-md cursor-pointer"
@@ -174,7 +174,7 @@ const BookDetails = () => {
         <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Dialog.Panel className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
-            <Dialog.Title className="text-2xl font-bold text-gray-900 mb-4">
+            <Dialog.Title className="text-2xl font-barlow-semibold text-gray-900 mb-4">
               Borrow "{book.name}"
             </Dialog.Title>
 
@@ -185,7 +185,7 @@ const BookDetails = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Name</p>
-                  <p className="font-medium">{user?.displayName || "Not available"}</p>
+                  <p className="font-barlow-medium">{user?.displayName || "Not available"}</p>
                 </div>
               </div>
 
@@ -195,7 +195,7 @@ const BookDetails = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
-                  <p className="font-medium">{user?.email || "Not available"}</p>
+                  <p className="font-barlow-medium">{user?.email || "Not available"}</p>
                 </div>
               </div>
 
@@ -219,14 +219,14 @@ const BookDetails = () => {
               <div className="flex justify-end gap-3 pt-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="cursor-pointer px-5 py-2 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                  className="cursor-pointer px-5 py-2 border border-gray-300 rounded-lg font-barlow-medium hover:bg-gray-50 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleBorrow}
                   disabled={loader}
-                  className="cursor-pointer px-5 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center gap-2"
+                  className="cursor-pointer px-5 py-2 bg-blue-600 text-white rounded-lg font-barlow-medium hover:bg-blue-700 transition-colors flex items-center gap-2"
                 >
                   {loader ? <Loader size="sm" /> : (
                     <>

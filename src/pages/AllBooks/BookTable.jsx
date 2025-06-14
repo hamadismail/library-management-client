@@ -24,7 +24,7 @@ const BookTable = ({ book, idx }) => {
 
       {/* Title */}
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm font-medium text-gray-900 line-clamp-2">
+        <div className="text-sm font-barlow-medium text-gray-900 line-clamp-2">
           {book.name}
         </div>
       </td>
@@ -38,7 +38,7 @@ const BookTable = ({ book, idx }) => {
 
       {/* Category */}
       <td className="px-6 py-4 whitespace-nowrap">
-        <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+        <span className="px-2 py-1 text-xs font-barlow-medium bg-blue-100 text-blue-800 rounded-full">
           {book.category}
         </span>
       </td>
@@ -47,7 +47,7 @@ const BookTable = ({ book, idx }) => {
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center gap-2">
           <StarRating value={book.rating} />
-          <span className="text-sm font-medium text-gray-900">
+          <span className="text-sm font-barlow-medium text-gray-900">
             {Number(book.rating).toFixed(1)}
           </span>
         </div>
@@ -55,7 +55,7 @@ const BookTable = ({ book, idx }) => {
 
       {/* Quantity */}
       <td className="px-6 py-4 whitespace-nowrap">
-        <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+        <span className={`px-2 py-1 text-xs font-barlow-medium rounded-full ${
           book.quantity > 0
             ? "bg-green-100 text-green-800"
             : "bg-red-100 text-red-800"
@@ -65,7 +65,7 @@ const BookTable = ({ book, idx }) => {
       </td>
 
       {/* Actions */}
-      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-barlow-medium">
         <div className="flex items-center gap-2">
           <button
             onClick={() => navigate(`/book/${book._id}`)}

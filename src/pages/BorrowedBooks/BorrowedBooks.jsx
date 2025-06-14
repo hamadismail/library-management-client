@@ -21,7 +21,7 @@ const BorrowedBooks = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
             <FaBook className="w-8 h-8 text-blue-600" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          <h1 className="text-3xl font-barlow-semibold text-gray-900 sm:text-4xl">
             Your Borrowed Books
           </h1>
           <p className="mt-3 text-lg text-gray-500 max-w-2xl mx-auto">
@@ -38,7 +38,7 @@ const BorrowedBooks = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500">Total Borrowed</p>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-barlow-semibold text-gray-800">
                   {borrowedBook?.length || 0}
                 </p>
               </div>
@@ -51,7 +51,7 @@ const BorrowedBooks = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500">Active</p>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-barlow-semibold text-gray-800">
                   {borrowedBook?.filter(b => new Date(b.returnDate) > new Date()).length || 0}
                 </p>
               </div>
@@ -64,7 +64,7 @@ const BorrowedBooks = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-500">Overdue</p>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-barlow-semibold text-gray-800">
                   {borrowedBook?.filter(b => new Date(b.returnDate) < new Date()).length || 0}
                 </p>
               </div>
@@ -82,7 +82,7 @@ const BorrowedBooks = () => {
             <div className="mx-auto h-24 w-24 text-gray-400">
               <FaHistory className="w-full h-full" />
             </div>
-            <h3 className="mt-4 text-lg font-medium text-gray-900">
+            <h3 className="mt-4 text-lg font-barlow-medium text-gray-900">
               No borrowed books
             </h3>
             <p className="mt-2 text-gray-500">

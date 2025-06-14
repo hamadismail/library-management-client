@@ -1,98 +1,122 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import Slide from "./Slide";
-import { GrNext, GrPrevious } from "react-icons/gr";
+import "swiper/css/effect-fade";
 import slide1 from "../../../assets/img/slide1.jpg";
 import slide2 from "../../../assets/img/slide2.jpg";
 import slide3 from "../../../assets/img/slide3.jpg";
+import Slide from "./Slide";
 
 const Banner = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const [swiperReady, setSwiperReady] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const slides = [
     {
-      title: "Discover Thousands of Books",
-      subtitle:
-        "Explore our vast collection and borrow your favorite titles anytime, anywhere.",
+      title: "Discover Your Next Favorite Book",
+      subtitle: "Explore our carefully curated collection of thousands of titles across all genres.",
       button: {
-        text: "Browse Now",
+        text: "Browse Collection",
         link: "/all-books",
       },
       image: slide1,
+      bgClass: "bg-gradient-to-br from-blue-50 to-indigo-50"
     },
     {
-      title: "Contribute to the Library",
-      subtitle:
-        "Have a book to share? Add it to our growing digital library and help others learn.",
+      title: "Share the Joy of Reading",
+      subtitle: "Contribute to our community by adding books you love to our growing library.",
       button: {
         text: "Add a Book",
         link: "/add-book",
       },
       image: slide2,
+      bgClass: "bg-gradient-to-br from-purple-50 to-pink-50"
     },
     {
-      title: "Manage Your Borrowed Books",
-      subtitle:
-        "Track and manage your borrowed books easily through your personal dashboard.",
+      title: "Your Personal Reading Hub",
+      subtitle: "Easily track and manage all your borrowed books in one place.",
       button: {
-        text: "My Books",
+        text: "View My Books",
         link: "/borrowed-books",
       },
       image: slide3,
+      bgClass: "bg-gradient-to-br from-green-50 to-teal-50"
     },
   ];
 
-  useEffect(() => {
-    setSwiperReady(true);
-  }, []);
-
   return (
-    <section className="bg-gradient-to-r from-[#fdfbfb] to-[#ebedee] py-16">
-      {swiperReady && (
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
-          loop
-          speed={1000}
-          className="rounded-lg shadow-md max-w-6xl mx-auto"
-        >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <Slide slide={slide} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      )}
+    <section className="relative overflow-hidden">
 
-      <div className="flex justify-center gap-6 mt-6 text-gray-950">
+      <Swiper
+        modules={[Navigation, Autoplay, EffectFade]}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
+        onBeforeInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+        }}
+        autoplay={{
+          delay: 7000,
+          disableOnInteraction: false
+        }}
+        effect="fade"
+        fadeEffect={{
+          crossFade: true
+        }}
+        speed={800}
+        loop
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        className=""
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <Slide slide={slide}/>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Custom Navigation */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 flex items-center gap-6">
         <button
           ref={prevRef}
-          className="cursor-pointer px-4 py-2 rounded bg-white border shadow hover:bg-gray-900 hover:text-white transition"
+          className="cursor-pointer w-12 h-12 rounded-full bg-white/90 shadow-md flex items-center justify-center hover:bg-white transition-all duration-300"
+          aria-label="Previous slide"
         >
-          <GrPrevious />
+          <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
+
+        <div className="flex space-x-2">
+          {slides.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all ${index === activeIndex ? 'bg-blue-600 w-6' : 'bg-blue-600/50'}`}
+            />
+          ))}
+        </div>
+
         <button
           ref={nextRef}
-          className="cursor-pointer px-4 py-2 rounded bg-white border shadow hover:bg-gray-900 hover:text-white transition"
+          className="cursor-pointer w-12 h-12 rounded-full bg-white/90 shadow-md flex items-center justify-center hover:bg-white transition-all duration-300"
+          aria-label="Next slide"
         >
-          <GrNext />
+          <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
+
+      {/* Slide Indicator */}
+      {/* <div className="absolute top-6 right-26 z-9 bg-white/90 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm">
+        <span className="text-blue-600">{activeIndex + 1}</span>
+        <span className="text-gray-500"> / {slides.length}</span>
+      </div> */}
     </section>
   );
 };

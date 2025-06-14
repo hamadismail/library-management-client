@@ -87,7 +87,7 @@ const BooksByCategory = () => {
         <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
           <FaBookOpen className="w-8 h-8 text-blue-600" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+        <h1 className="text-3xl font-barlow-semibold text-gray-900 sm:text-4xl">
           {books[0]?.category || id} Books
         </h1>
         <p className="mt-3 text-lg text-gray-500 max-w-2xl mx-auto">
@@ -124,7 +124,7 @@ const BooksByCategory = () => {
             <span className="text-sm text-gray-500">Search in:</span>
             <button
               onClick={() => toggleSearchFilter("title")}
-              className={`px-3 py-1 rounded-full text-xs font-medium ${
+              className={`px-3 py-1 rounded-full text-xs font-barlow-medium ${
                 searchFilters.title
                   ? "bg-blue-100 text-blue-800"
                   : "bg-gray-100 text-gray-800"
@@ -134,7 +134,7 @@ const BooksByCategory = () => {
             </button>
             <button
               onClick={() => toggleSearchFilter("author")}
-              className={`px-3 py-1 rounded-full text-xs font-medium ${
+              className={`px-3 py-1 rounded-full text-xs font-barlow-medium ${
                 searchFilters.author
                   ? "bg-blue-100 text-blue-800"
                   : "bg-gray-100 text-gray-800"
@@ -144,7 +144,7 @@ const BooksByCategory = () => {
             </button>
             <button
               onClick={() => toggleSearchFilter("category")}
-              className={`px-3 py-1 rounded-full text-xs font-medium ${
+              className={`px-3 py-1 rounded-full text-xs font-barlow-medium ${
                 searchFilters.category
                   ? "bg-blue-100 text-blue-800"
                   : "bg-gray-100 text-gray-800"
@@ -175,7 +175,7 @@ const BooksByCategory = () => {
           <div className="mx-auto h-24 w-24 text-gray-400">
             <FaBookOpen className="w-full h-full" />
           </div>
-          <h3 className="mt-4 text-lg font-medium text-gray-900">
+          <h3 className="mt-4 text-lg font-barlow-medium text-gray-900">
             {searchTerm
               ? "No matching books found"
               : "No books in this category"}
