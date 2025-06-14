@@ -18,7 +18,7 @@ const useBookDetails = (id) => {
         setBook(res.data);
       })
       .catch((err) => {
-        Swal.fire("Error", "No Book Found", err.code);
+        // Swal.fire("Error", "No Book Found", err.code);
       })
       .finally(() => {
         setLoading(false);
