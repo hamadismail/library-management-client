@@ -16,28 +16,28 @@ const BookCard = ({ book }) => {
         />
       </div>
       <div className="p-5">
-        <h3 className="text-lg font-barlow-semibold text-gray-900 mb-1 line-clamp-1">{book.name}</h3>
+        <h3 className="text-lg font-bold text-gray-900 mb-1 line-clamp-1">{book.name}</h3>
 
         <div className="flex items-center text-sm text-gray-600 mb-1">
-          <span className="font-barlow-medium">Author:</span>
+          <span className="font-medium">Author:</span>
           <span className="ml-1 line-clamp-1">{book.author}</span>
         </div>
 
         <div className="flex items-center text-sm text-gray-600 mb-2">
-          <span className="font-barlow-medium">Category:</span>
+          <span className="font-medium">Category:</span>
           <span className="ml-1 line-clamp-1">{book.category}</span>
         </div>
 
         <div className="flex items-center text-sm mb-3">
-          <span className="font-barlow-medium text-gray-600 mr-1">Rating:</span>
+          <span className="font-medium text-gray-600 mr-1">Rating:</span>
           <StarRating value={book.rating} />
-          <span className="ml-1 text-gray-700 font-barlow-medium">
+          <span className="ml-1 text-gray-700 font-medium">
             {Number(book.rating).toFixed(1)}
           </span>
         </div>
 
         <div className="flex items-center text-sm text-gray-600 mb-4">
-          <span className="font-barlow-medium">Quantity:</span>
+          <span className="font-medium">Quantity:</span>
           <span className="ml-1">{book.quantity}</span>
         </div>
 
@@ -47,7 +47,7 @@ const BookCard = ({ book }) => {
               navigate(`/book/${book._id}`);
               window.scrollTo(0, 0);
             }}
-            className="cursor-pointer flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-barlow-medium transition-colors duration-200"
+            className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
           >
             <FaEye className="text-sm" />
             Details
@@ -58,7 +58,7 @@ const BookCard = ({ book }) => {
               navigate(`/update/${book._id}`);
               window.scrollTo(0, 0);
             }}
-            className="cursor-pointer flex-1 flex items-center justify-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg text-sm font-barlow-medium transition-colors duration-200"
+            className="flex-1 flex items-center justify-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
           >
             <FiEdit className="text-sm" />
             Update

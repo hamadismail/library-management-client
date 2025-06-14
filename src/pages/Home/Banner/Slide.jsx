@@ -8,7 +8,7 @@ const Slide = ({ slide }) => {
   return (
     <div className={`${slide.bgClass}`}>
 
-    <div className={`max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 py-16`}>
+    <div className={`max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 py-20 px-4`}>
       {/* Text Content */}
       <div className="max-w-2xl text-center lg:text-left space-y-6 ">
         <motion.h2
