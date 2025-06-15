@@ -5,9 +5,11 @@ import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Loader } from "../../components/ui/Loader";
 
 const AddBook = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [book, setBook] = useState({
     name: "",
     author: "",
@@ -43,6 +45,7 @@ const AddBook = () => {
   };
 
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
     axiosSecure
       .post("/books", book)
@@ -58,7 +61,10 @@ const AddBook = () => {
         }
         navigate("/all-books");
       })
-      .catch((error) => alert(error.code));
+      .catch((error) => alert(error.code))
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -202,7 +208,11 @@ const AddBook = () => {
               type="submit"
               className="bg-gray-900 cursor-pointer text-white font-barlow-semibold px-6 py-2 rounded-md hover:bg-gray-800 transition"
             >
-              ➕ Add Book
+              {loading ? (
+                <Loader />
+              ) : (
+                "➕ Add Book"
+              )}
             </button>
           </div>
         </form>
