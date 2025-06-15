@@ -122,7 +122,7 @@ const BookDetails = () => {
               <h1 className="text-3xl font-barlow-semibold text-gray-900 mb-2">{book.name}</h1>
               <p className="text-lg text-gray-600 mb-6">{book.author}</p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+              <div className="flex flex-wrap gap-4 mb-6">
                 <div className="flex items-center gap-1 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-barlow-medium">
                   <StarRating value={book.rating} />
                   <span>{Number(book.rating).toFixed(1)}</span>
