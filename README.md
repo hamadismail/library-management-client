@@ -8,13 +8,11 @@
 
 ## 🚀 Key Features
 
-- 🔐 Firebase Authentication (Login, Register, Logout)
 - 📚 Browse books by category or full list
 - 📖 View book details and availability
 - 🛒 Borrow books with return date selection
 - 🗂️ Manage user’s borrowed books
 - 🌐 Protected routes and role-based access
-- 🔁 SweetAlert2-based user feedback for actions
 - 📱 Responsive design using Tailwind CSS
 
 ## 🧰 Technologies & Packages Used
