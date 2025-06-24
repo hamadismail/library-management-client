@@ -42,6 +42,49 @@
 - `/api`: Custom React hooks for fetching backend data
 - `/hooks`: Custom utility and authentication hooks
 
-## 🔗 Github Repository
+## 📦 Installation Guide
 
-[Client Repository](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-hamadismail)
+### ✅ Prerequisites
+
+- Node.js and npm installed
+- Firebase project (for authentication)
+
+---
+
+### Clone the repository:
+
+```bash
+git clone https://github.com/hamadismail/library-management-client.git
+cd library-management-client
+```
+
+### Install dependencies:
+
+```bash
+npm install
+```
+
+### Create a .env.local file in the root and add:
+
+```bash
+VITE_apiKey=your_firebase_api_key
+VITE_authDomain=your_project.firebaseapp.com
+VITE_projectId=your_project_id
+VITE_storageBucket=your_bucket
+VITE_messagingSenderId=your_sender_id
+VITE_appId=your_app_id
+```
+
+### Start the development server:
+
+```bash
+npm run dev
+```
+
+## 📫 Contact
+
+Feel free to reach out with any questions or feedback!
+
+- 💻 GitHub: hamadismail
+
+- 📧 Email: hamad.ismail.gub@gmail.com
