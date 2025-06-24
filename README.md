@@ -49,8 +49,6 @@
 - Node.js and npm installed
 - Firebase project (for authentication)
 
----
-
 ### Clone the repository:
 
 ```bash
