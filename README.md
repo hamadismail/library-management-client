@@ -15,22 +15,25 @@
 - 🌐 Protected routes and role-based access
 - 📱 Responsive design using Tailwind CSS
 
-## 🧰 Technologies & Packages Used
+## 🛠️ Tech Stack
 
-- React
-- React Router
-- Axios
-- Firebase Authentication
-- Tailwind CSS
-- SweetAlert2
-- @headlessui/react
-- React Icons
-- framer-motion
-- swiper
-- react-hook-form
-- react-simple-star-rating
-- react-spinners
-- react-tooltip
+- **Frontend**: React.js, TailwindCSS, DaisyUI
+- **Routing**: React Router DOM
+- **Authentication**: Firebase
+- **State Management**: React Context API
+- **Form Handling**: React Hook Forms
+- **Animation**: Swiper.js Slider, Framer Motion
+
+## 📦 NPM Packages Used
+
+- `react-hot-toast`
+- `sweetalert2`
+- `react-tooltip`
+- `@headlessui/react`
+- `react-simple-star-rating`
+- `react-icons`
+- `react-spinners`
+- `date-fns`
 
 ## 📂 Folder Structure Highlights
 
