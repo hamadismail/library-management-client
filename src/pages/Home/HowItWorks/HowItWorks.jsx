@@ -27,7 +27,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="pt-12 pb-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
@@ -78,11 +78,11 @@ const HowItWorks = () => {
         </div>
 
         {/* CTA (optional) */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <button className="cursor-pointer inline-flex items-center px-4 py-2 rounded-md shadow-sm text-white bg-gray-900 hover:bg-gray-950 transition-colors duration-200">
             Get Started Today
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -52,8 +52,8 @@ const Footer = () => {
             <h3 className="text-xl font-barlow-semibold mb-3">
               Contact & Social
             </h3>
-            <p className="text-sm">Email: support@redora.com</p>
-            <p className="text-sm mb-4">Phone: +880-1234-567890</p>
+            <p className="text-sm">Email: hamad.ismail.gub@gmail.com</p>
+            <p className="text-sm mb-4">Phone: +880 1816401515</p>
             <div className="flex space-x-4 text-2xl">
               <Link
                 to="https://www.facebook.com/hamad2k25/"

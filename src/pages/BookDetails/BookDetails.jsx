@@ -99,7 +99,7 @@ const BookDetails = () => {
       <div className="max-w-6xl mx-auto">
         <button
           onClick={() => navigate(-1)}
-          className="cursor-pointer flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6 transition-colors"
+          className="cursor-pointer flex items-center gap-2 text-gray-900 hover:text-gray-950 mb-6 transition-colors"
         >
           <FaArrowLeft /> Back to Books
         </button>
@@ -123,18 +123,18 @@ const BookDetails = () => {
               <p className="text-lg text-gray-600 mb-6">{book.author}</p>
 
               <div className="flex flex-wrap gap-4 mb-6">
-                <div className="flex items-center gap-1 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-barlow-medium">
+                <div className="flex items-center gap-1 bg-gray-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-barlow-medium">
                   <StarRating value={book.rating} />
                   <span>{Number(book.rating).toFixed(1)}</span>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-sm font-barlow-medium ${
+                <span className={`px-3 py-2 rounded-full text-sm font-barlow-medium ${
                   book.quantity > 0
-                    ? "bg-green-100 text-green-800"
-                    : "bg-red-100 text-red-800"
+                    ? "bg-gray-100 text-green-800"
+                    : "bg-gray-100 text-red-800"
                 }`}>
                   {book.quantity > 0 ? `${book.quantity} available` : "Out of stock"}
                 </span>
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-barlow-medium">
+                <span className="px-3 py-2 bg-gray-100 text-purple-800 rounded-full text-sm font-barlow-medium">
                   {book.category}
                 </span>
               </div>
@@ -152,8 +152,8 @@ const BookDetails = () => {
                   disabled={book.quantity == 0}
                   className={`flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3 rounded-lg font-barlow-medium transition-colors ${
                     book.quantity == 0
-                      ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                      : "bg-blue-600 text-white hover:bg-blue-700 shadow-md cursor-pointer"
+                      ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                      : "bg-gray-900 text-white hover:bg-gray-950 shadow-md cursor-pointer"
                   }`}
                 >
                   <FaBookOpen className="text-lg" />

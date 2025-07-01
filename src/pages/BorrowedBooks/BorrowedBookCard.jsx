@@ -96,7 +96,7 @@ const BorrowedBookCard = ({ book, borrowedBooks, setBorrowedBooks }) => {
       <div className="mt-auto p-3 border-t border-gray-100">
         <button
           onClick={handleReturn}
-          className="cursor-pointer w-full flex items-center justify-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-md font-barlow-medium transition-colors duration-200"
+          className="cursor-pointer w-full flex items-center justify-center gap-2 px-3 py-2 bg-gray-900 hover:bg-gray-950 text-white text-sm rounded-md font-barlow-medium transition-colors duration-200"
         >
           <FaUndo size={14} />
           Return Book

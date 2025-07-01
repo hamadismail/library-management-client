@@ -22,7 +22,7 @@ const BookCategories = () => {
   };
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -66,7 +66,7 @@ const BookCategories = () => {
         </div>
 
         {/* View All Button (optional) */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <button
             onClick={() => {
               navigate('/all-books');
@@ -76,7 +76,7 @@ const BookCategories = () => {
           >
             View All Books
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

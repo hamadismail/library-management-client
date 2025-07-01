@@ -26,7 +26,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -80,11 +80,11 @@ const Testimonials = () => {
         </div>
 
         {/* View More (optional) */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <button className="cursor-pointer inline-flex items-center px-4 py-2 shadow-sm text-white rounded-md bg-gray-900 hover:bg-gray-950 transition-colors duration-200">
             Read More Testimonials
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

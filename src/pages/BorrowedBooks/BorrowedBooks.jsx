@@ -18,8 +18,8 @@ const BorrowedBooks = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="mb-8 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-            <FaBook className="w-8 h-8 text-blue-600" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-200 rounded-full mb-4">
+            <FaBook className="w-8 h-8 text-gray-900" />
           </div>
           <h1 className="text-3xl font-barlow-semibold text-gray-900 sm:text-4xl">
             Your Borrowed Books
