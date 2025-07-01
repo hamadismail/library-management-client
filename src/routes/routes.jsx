@@ -21,11 +21,7 @@ export const router = createBrowserRouter([
       { index: true, Component: Home },
       {
         path: "all-books",
-        element: (
-          <PrivateRoute>
-            <AllBooks />
-          </PrivateRoute>
-        ),
+        Component: AllBooks
       },
       {
         path: "add-book",

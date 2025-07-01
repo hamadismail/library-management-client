@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import useAxiosSecure from "../hooks/useAxiosSecure";
+import axios from "axios";
 
 const useBooks = () => {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
 
-  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    axiosSecure
-      .get("/books")
+    axios
+      .get("https://redora.vercel.app/books")
       .then((res) => setBooks(res.data))
       .catch((error) => alert(error.code))
       .finally(() => setLoading(false));

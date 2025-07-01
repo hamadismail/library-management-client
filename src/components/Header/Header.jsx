@@ -13,11 +13,11 @@ const Header = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
+      <li onClick={window.scrollTo(0, 0)}>
+        <NavLink to="/all-books">All Books</NavLink>
+      </li>
       {user && (
         <>
-          <li onClick={window.scrollTo(0, 0)}>
-            <NavLink to="/all-books">All Books</NavLink>
-          </li>
           <li>
             <NavLink to="/add-book">Add Book</NavLink>
           </li>

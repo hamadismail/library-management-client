@@ -8,7 +8,7 @@ const Slide = ({ slide }) => {
   return (
     <div className={`${slide.bgClass}`}>
 
-    <div className={`max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 py-20 px-4`}>
+    <div className={`max-w-7xl h-[90vh] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 py-20 px-4`}>
       {/* Text Content */}
       <div className="max-w-2xl text-center lg:text-left space-y-6 ">
         <motion.h2
@@ -36,7 +36,7 @@ const Slide = ({ slide }) => {
         >
           <Link
             to={slide.button.link}
-            className="inline-flex items-center px-4 py-2 rounded-full shadow-lg text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 transition-all duration-300 hover:shadow-xl group"
+            className="inline-flex items-center px-4 py-2 rounded-full shadow-lg text-white bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-900 hover:to-gray-950 transition-all duration-300 hover:shadow-xl group"
           >
             {slide.button.text}
             <FiArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" />
@@ -51,7 +51,7 @@ const Slide = ({ slide }) => {
         animate={{
           opacity: 1,
           scale: 1,
-          y: [0, -15, 0] // subtle floating effect
+          // y: [0, -15, 0] // subtle floating effect
         }}
         transition={{
           y: {
