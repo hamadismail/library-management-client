@@ -84,8 +84,8 @@ const BooksByCategory = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header Section */}
       <div className="mb-8 text-center">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-          <FaBookOpen className="w-8 h-8 text-blue-600" />
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-200 rounded-full mb-4">
+          <FaBookOpen className="w-8 h-8 text-gray-900" />
         </div>
         <h1 className="text-3xl font-barlow-semibold text-gray-900 sm:text-4xl">
           {books[0]?.category || id} Books
@@ -126,7 +126,7 @@ const BooksByCategory = () => {
               onClick={() => toggleSearchFilter("title")}
               className={`px-3 py-1 rounded-full text-xs font-barlow-medium ${
                 searchFilters.title
-                  ? "bg-blue-100 text-blue-800"
+                  ? "bg-gray-900 text-white"
                   : "bg-gray-100 text-gray-800"
               }`}
             >
@@ -136,7 +136,7 @@ const BooksByCategory = () => {
               onClick={() => toggleSearchFilter("author")}
               className={`px-3 py-1 rounded-full text-xs font-barlow-medium ${
                 searchFilters.author
-                  ? "bg-blue-100 text-blue-800"
+                  ? "bg-gray-900 text-white"
                   : "bg-gray-100 text-gray-800"
               }`}
             >
@@ -146,7 +146,7 @@ const BooksByCategory = () => {
               onClick={() => toggleSearchFilter("category")}
               className={`px-3 py-1 rounded-full text-xs font-barlow-medium ${
                 searchFilters.category
-                  ? "bg-blue-100 text-blue-800"
+                  ? "bg-gray-900 text-white"
                   : "bg-gray-100 text-gray-800"
               }`}
             >
